@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>I <%= first_name %> <%= last_name %></h1>
+    <p>Welcome to <%= title %></p>
+    <ul>
+		<% for (var x in stuff){ %>
+			<li><%= stuff[x] %></li>
+		<% }%>
+    </ul>
+<a href="/home">go to home</a>    
+  </body>
+</html>

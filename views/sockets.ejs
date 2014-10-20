@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<!-- this is a premade js file that provides all info for connecting to my server via a websocket -->
+	<script type="text/javascript" src='/socket.io/socket.io.js'></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//io = io.connect();
+
+
+
+		$('#hi').click(function(){
+			//use socket connection to emit a message to the server
+			io.emit('say_hi',{message: $('#message').val()})
+		})
+
+		// io.on('say_hi_back', function(data){
+		// 	alert("someone has said back to me" + data.greeting);
+		// })
+
+
+		$('#connect_now').click(function(){
+			io = io.connect();
+			io.on('say_hi_back', function(data){
+			alert("someone has said back to me" + data.greeting);
+		})
+		})
+
+
+	})
+	</script>
+</head>
+<body>
+	<h1>hello</h1>
+	<button id='hi'>say hi to server using sockets</button>
+	<input type='text' id='message'>
+	<button id='connect_now'>connect now</button>
+
+</body>
+</html>
